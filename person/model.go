@@ -1,4 +1,4 @@
-package personshare
+package person
 
 import (
 	"time"

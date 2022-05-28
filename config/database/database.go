@@ -3,7 +3,7 @@ package database
 import (
 	"log"
 
-	personshare "github.com/SamuelLFA/goregister/personShare"
+	"github.com/SamuelLFA/goregister/person"
 	"gorm.io/driver/postgres"
 	"gorm.io/gorm"
 )
@@ -20,5 +20,5 @@ func ConectWithDatabase() {
 		log.Panic("Error in connection with database")
 	}
 
-	DB.AutoMigrate(&personshare.PersonModel{})
+	DB.AutoMigrate(&person.PersonModel{})
 }

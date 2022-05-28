@@ -2,14 +2,14 @@ package validations
 
 import (
 	"github.com/SamuelLFA/goregister/config/database"
-	personshare "github.com/SamuelLFA/goregister/personShare"
+	p "github.com/SamuelLFA/goregister/person"
 	"github.com/go-playground/validator/v10"
 )
 
 func Unique(fl validator.FieldLevel) bool {
 	email := fl.Field().String()
-	var person personshare.PersonModel
-	database.DB.First(&person, personshare.PersonModel{Email: email})
+	var person p.PersonModel
+	database.DB.First(&person, p.PersonModel{Email: email})
 
 	return person.ID == 0
 }

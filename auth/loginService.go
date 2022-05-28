@@ -2,7 +2,7 @@ package auth
 
 import (
 	"github.com/SamuelLFA/goregister/config/database"
-	personshare "github.com/SamuelLFA/goregister/personShare"
+	person "github.com/SamuelLFA/goregister/person"
 	"github.com/SamuelLFA/goregister/share/hash"
 )
 
@@ -18,8 +18,8 @@ func StaticLoginService() LoginService {
 }
 
 func (info *loginInformation) LoginUser(email string, password string) bool {
-	var personData personshare.PersonModel
-	database.DB.First(&personData, personshare.PersonModel{Email: email})
+	var personData person.PersonModel
+	database.DB.First(&personData, person.PersonModel{Email: email})
 
 	if personData.Email == "" {
 		return false

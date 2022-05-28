@@ -1,7 +1,7 @@
 package personcreate
 
 import (
-	personshare "github.com/SamuelLFA/goregister/personShare"
+	person "github.com/SamuelLFA/goregister/person"
 	"github.com/SamuelLFA/goregister/share/hash"
 )
 
@@ -11,11 +11,11 @@ type PersonCreateForm struct {
 	Password string `form:"password" binding:"required,min=1,max=255"`
 }
 
-func toModel(form PersonCreateForm) personshare.PersonModel {
-	pass, _ := hash.HashPassword(form.Password)
-	return personshare.PersonModel{
-		Name:     form.Name,
-		Email:    form.Email,
+func (p *PersonCreateForm) ToModel() person.PersonModel {
+	pass, _ := hash.HashPassword(p.Password)
+	return person.PersonModel{
+		Name:     p.Name,
+		Email:    p.Email,
 		Password: pass,
 	}
 }

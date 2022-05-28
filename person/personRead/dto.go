@@ -1,7 +1,7 @@
 package personread
 
 import (
-	personshare "github.com/SamuelLFA/goregister/personShare"
+	person "github.com/SamuelLFA/goregister/person"
 )
 
 type PersonReadDTO struct {
@@ -10,7 +10,7 @@ type PersonReadDTO struct {
 	Password string `form:"password"`
 }
 
-func toDTO(model personshare.PersonModel) PersonReadDTO {
+func toDTO(model person.PersonModel) PersonReadDTO {
 	return PersonReadDTO{
 		Name:     model.Name,
 		Email:    model.Email,
